@@ -259,9 +259,9 @@ end
 
 local function heartbeat()
 	if not refuel() then print("I ran out of fuel :(") return false end
-	if is_inventory_full() and current_status == 1 then
+	if is_inventory_full() and work_status == 1 then
 		print("Inventory full, returning to storage chest.")
-		current_status = 2 
+		work_status = 2 
 		return true 
 	end
 	if work_status == 1 then 

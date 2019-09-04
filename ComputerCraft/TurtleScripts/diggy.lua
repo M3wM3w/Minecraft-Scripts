@@ -5,7 +5,7 @@
 
 local relative_position = {x = 0, y = 0, z = 0}
 local work_status = 1
-local radius = 32
+local radius = 48
 local status_translation = {
 	[1] = "Mining.",
 	[2] = "Returning to storage container.",
@@ -24,14 +24,19 @@ local valid_blocks = {
 	["stone"] = true,
 	["cobblestone"] = true,
 	["ore"] = true,
+	["oreblock"] = true,
 	["dirt"] = true,
+	["clay"] = true,
 	["gravel"] = true,
 	["basalt"] = true,
 	["basalt2"] = true,
+	["marble"] = true,
+	["marble2"] = true,
 }
 
 local function is_valid_for_mining(str)
 	if not str then return false end
+	--if string.find(str, "ore") then return true end
 	if string.sub(str, string.len(str) - 2, string.len(str)) == "ore" then return true end
 	local a, b = string.find(str, ":")
 	if not a then return false end
