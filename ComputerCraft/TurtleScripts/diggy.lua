@@ -21,21 +21,27 @@ local turtle_directions = {
 }
 
 local valid_blocks = {
-	["stone"] = true,
-	["cobblestone"] = true,
-	["ore"] = true,
-	["oreblock"] = true,
-	["dirt"] = true,
-	["clay"] = true,
-	["gravel"] = true,
+	["actuallyadditions:block_misc"] = true, --black quartz
 	["basalt"] = true,
 	["basalt2"] = true,
+	["clay"] = true,
+	["dirt"] = true,
+	["gravel"] = true,
 	["marble"] = true,
 	["marble2"] = true,
+	["minecraft:cobblestone"] = true,
+	["minecraft:obsidian"] = true,
+	["minecraft:stone"] = true,
+	["ore"] = true,
+	["ore_cinnabar"] = true,
+	["ore_amber"] = true,
+	["oreblock"] = true,
+	["stone"] = true,
 }
 
 local function is_valid_for_mining(str)
 	if not str then return false end
+	if valid_blocks[str] then return true end
 	--if string.find(str, "ore") then return true end
 	if string.sub(str, string.len(str) - 2, string.len(str)) == "ore" then return true end
 	local a, b = string.find(str, ":")
